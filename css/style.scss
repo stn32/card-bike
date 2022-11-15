@@ -1,0 +1,283 @@
+@font-face {
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+}
+
+$color0: #F4F4F4;
+$color1: #3922C5;
+$color2: #0C0C0C;
+$color3: #494949;
+$color4: #D9D9D9;
+$color5: #F4F4F4;
+$color6: #FFFFFF;
+$color7: #2C1A9A;
+$color8: #1F1368;
+
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin tx-h1 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 39px;
+    letter-spacing: 0em;
+    color: $color2;
+}
+@mixin tx-h2 {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 33px;
+    letter-spacing: 0em;
+    color: $color2;
+}
+@mixin tx-h3 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: 0em;
+    color: $color2;
+}
+@mixin tx-btn {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+}
+
+
+body {
+    font-family: Montserrat, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: $color0;
+    .box {
+        padding: 1.5rem;
+        .box__tabs {
+            display: flex;
+            @media (max-width: 991px) {
+                display: none;
+            }
+            div {
+                height: 73px;
+                width: 100%;
+                max-width: 267px;
+                background: $color5;
+                color: $color1;
+                border-radius: 20px 20px 0px 0px;
+                cursor: pointer;
+                @include center;
+                @include tx-btn;
+            }
+            div.active {
+                background: $color4;
+                color: $color2;
+            }
+        }
+        .box__mob_tab {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            background: $color6;
+            width: 100%;
+            height: 73px;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            box-sizing: border-box;
+            cursor: pointer;
+            @media (max-width: 991px) {
+                display: flex;
+            }
+            span {
+                img {
+                    transform: rotate(-180deg);
+                    transition: 500ms ease;
+                }
+            }
+        }
+        .box__mob_tab.active {
+            span {
+                img {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+        .box__item.active {
+            display: block;
+            @media (max-width: 991px) {
+                height: 100%;
+            }
+        }
+        .box__item {
+            display: none;
+            width: 100%;
+            max-width: 846px;
+            background: $color6;
+            @media (max-width: 991px) {
+                border-radius: 20px;
+                height: 0;
+            }
+            .box__content {
+                .box__desc {
+                    display: flex;
+                    justify-content: space-between;
+                    @media (max-width: 991px) {
+                        display: block;
+                    }
+                    div:last-of-type {
+                        padding: 2rem;
+                        h1 {@include tx-h1;}
+                        p {@include tx-btn;}
+                    }
+                }
+                .box__info {
+                    padding: 2rem;
+                    .box__features {
+                        padding: 2rem 2rem 0 2rem;
+                        border-top: solid 1px $color4;
+                        @media (max-width: 991px) {
+                            padding: 1rem 0;
+                        }
+                        h2 {@include tx-h2;}
+                        ul {
+                            columns: 2;
+                            margin-left: -1.3rem;
+                            @media (max-width: 991px) {
+                                columns: 1;
+                            }
+                            li {
+                                @include tx-btn;
+                                list-style-type: upper-greek;
+                                margin-bottom: 1rem;
+                            }
+                        }
+                        .box__list2 {
+                            li {
+                                list-style-type: none;
+                            }
+                            li:before {
+                                content: "";
+                                background: url("../i/bike.png") no-repeat center center/cover;
+                                width: 20px;
+                                height: 17px;
+                                display: inline-block;
+                                margin-right: 6px;
+                            }
+                        }
+                    }
+                    .box__add {
+                        padding: 1rem 2rem 2rem 2rem;
+                        @media (max-width: 991px) {
+                            padding: 0;
+                        }
+                        h2 {@include tx-h2;}
+                        span {
+                            margin: 1rem 0;
+                            display: block;
+                            color: $color1;
+                            @include tx-btn;
+                        }
+                        div {
+                            display: flex;
+                            @media (max-width: 991px) {
+                                display: block;
+                            }
+                            input {
+                                @include tx-btn;
+                                display: flex;
+                                align-items: center;
+                                padding: 0 1rem;
+                                max-width: 350px;
+                                width: 100%;
+                                height: 50px;
+                                border: solid 1px $color4;
+                                border-radius: 16px;
+                                margin-right: 1rem;
+                                box-sizing: border-box;
+                                @media (max-width: 991px) {
+                                    max-width: 100%;
+                                    margin-bottom: 1rem;
+                                }
+                            }
+                            button {
+                                @include center;
+                                @include tx-btn;
+                                max-width: 128px;
+                                width: 100%;
+                                height: 50px;
+                                color: $color6;
+                                background: $color1;
+                                border-radius: 16px;
+                                border: none;
+                                cursor: pointer;
+                                transition: background-color 500ms ease;
+                                @media (max-width: 991px) {
+                                    max-width: 100%;
+                                    margin-bottom: 1rem;
+                                }
+                            }
+                            button:hover {
+                                background-color: $color7;
+                            }
+                        }
+                    }
+                    .box__sub {
+                        display: flex;
+                        align-items: center;
+                        padding: 0 2rem;
+                        box-sizing: border-box;
+                        background: $color6;
+                        box-shadow: 0px 10px 40px rgba(12, 12, 12, 0.1);
+                        border-radius: 20px;
+                        width: 100%;
+                        height: 112px;
+                        button {
+                            transition: background-color 500ms ease;
+                            @media (max-width: 991px) {
+                                max-width: 100%;
+                            }
+                        }
+                        #btn1 {
+                            @include center;
+                            @include tx-btn;
+                            max-width: 92px;
+                            width: 100%;
+                            height: 50px;
+                            color: $color6;
+                            background: $color1;
+                            border-radius: 16px;
+                            border: none;
+                            cursor: pointer;
+                            margin-right: 1rem;
+                            @media (max-width: 991px) {
+                                max-width: 100%;
+                            }
+                        }
+                        #btn1:hover {
+                            background-color: $color7;
+                        }
+                        #btn2 {
+                            @include center;
+                            @include tx-btn;
+                            max-width: 92px;
+                            width: 100%;
+                            height: 50px;
+                            color: $color2;
+                            background: $color6;
+                            border-radius: 16px;
+                            border: none;
+                            cursor: pointer;
+                            @media (max-width: 991px) {
+                                max-width: 100%;
+                            }
+                        }
+                        #btn2:hover {
+                            background-color: $color7;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
